@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grids</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0575e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #021b79,
+          #0575e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #021b79,
+          #0575e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
+      .container{
+        border: 2px dotted white;
+        border-radius: 100px;
+        /* sets parent container to grid */
+        display: grid;
+        /* sets row gap */
+        /* row-gap: 1rem; */
+        /* column-gap: 1rem; */
+        gap: 2rem;
+        padding: 3rem;
+        /* sets number of rows */
+        /* sets number of columns */
+        /* this method is not responsive */
+        /* grid-template-rows: 100px 100px 100px; */
+        /* grid-template-columns: 100px 100px 100px; */
+        /* relative units */
+        /* grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr; */
+        
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(3,1fr);
+        place-items: center;
+      }
+
+      .item{
+        height: 50px;
+        width: 50px;
+        background-color: white;
+        border-radius: 100%;
+      }
+    </style>
+  </head>
+  <body>
+     <div class="container">
+        <div class="item-1 item"></div>
+        <div class="item-2 item"></div>
+        <div class="item-3 item"></div>
+        <div class="item-4 item"></div>
+        <div class="item-5 item"></div>
+        <div class="item-6 item"></div>
+        <div class="item-7 item"></div>
+        <div class="item-8 item"></div>
+        <div class="item-9 item"></div>
+     </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grids example 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        color: white;
+        font-weight: bolder;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+      }
+
+      .container {
+        height: 100%;
+        width: 100%;
+        padding: 4rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 200px);
+      }
+      /*Justify Self is the property applied on children items of grid horizontal axis*/
+      /*justify self stretch assigns the full width of the container to the child*/
+      /*Working of align self is similar but for y-axis*/
+      /*place item works for both x,y axes*/
+      .item {
+        height: 150px;
+        width: 150px;
+        /* justify-self: center; */
+        /* align-self: center; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        place-self: center;
+        border: 1px solid white;
+        border-radius: 100%;
+        background: #8e2de2; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #4a00e0,
+          #8e2de2
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #4a00e0,
+          #8e2de2
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
+      .A{
+        justify-self: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item A">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+      <div class="item">D</div>
+    </div>
+  </body>
+</html>
