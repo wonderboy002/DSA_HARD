@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Areas</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+      }
+
+      .container {
+        height: 100%;
+        width: 100%;
+        padding: 4rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-areas:
+          "header header header"
+          "sidebar Content-1 Content-1"
+          "sidebar Subcontent-1 Subcontent-2"
+          "Footer Footer Footer";
+      }
+
+      .items {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid goldenrod;
+        background-color: dodgerblue;
+      }
+
+      #header {
+        grid-area: header;
+      }
+      #sidebar {
+        grid-area: sidebar;
+      }
+      #Content-1 {
+        grid-area: Content-1;
+      }
+      #Subcontent-1 {
+        grid-area: Subcontent-1;
+      }
+      #Subcontent-2 {
+        grid-area: Subcontent-2;
+      }
+      #Footer {
+        grid-area: Footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items" id="header">header</div>
+      <div class="items" id="sidebar">sidebar</div>
+      <div class="items" id="Content-1">Content-1</div>
+      <div class="items" id="Subcontent-1">Subcontent-1</div>
+      <div class="items" id="Subcontent-2">Subcontent-2</div>
+      <div class="items" id="Footer">Footer</div>
+    </div>
+  </body>
+</html>
