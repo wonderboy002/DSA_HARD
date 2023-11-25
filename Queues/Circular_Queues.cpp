@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
-class Queue
+class Circular_Queue
 {
 public:
     int *arr;
     int size, front, rear;
 
-    Queue(int size)
+    Circular_Queue(int size)
     {
         this->size = size;
         arr = new int[size];
@@ -20,7 +20,7 @@ public:
 
     bool isFull()
     {
-        return rear == size - 1 ? 1 : 0;
+        return (front==0 && rear == size - 1) || (front==rear+1) ? 1 : 0;
     }
 
     void push(int x)
@@ -33,9 +33,13 @@ public:
         }
         else if (this->isFull())
         {
-            cout << "Queue overflow" << endl;
+            cout << "Circular_Queue overflow" << endl;
         }
-        else
+        else if (rear==size-1 && front!=0){
+            rear=0;
+            arr[rear]=x;
+        }
+        else 
         {
             rear++;
             arr[rear] = x;
@@ -52,7 +56,11 @@ public:
         }
         else if (this->isEmpty())
         {
-            cout << "Queue underflow" << endl;
+            cout << "Circular_Queue underflow" << endl;
+        }
+        else if (front==size-1){
+            temp=arr[front];
+            front=0;
         }
         else
         {
@@ -79,14 +87,15 @@ public:
 
     void display()
     {
-        cout << "Your Queue is : " << endl;
+        cout << "Your Circular_Queue is : " << endl;
         if (!this->isEmpty())
         {
-
-            for (int i = front; i <= rear; i++)
-            {
-                cout << arr[i] << " ";
+            int i=front;
+            while (i!=rear){
+                cout<<arr[i]<<" ";
+                i=i==size-1?0:i+1;
             }
+            cout<<arr[rear]<<" ";
         }
         else
         {
@@ -97,30 +106,36 @@ public:
 };
 int main()
 {
-    Queue *q = new Queue(5);
+    Circular_Queue *q = new Circular_Queue(5);
     q->push(10);
     q->push(20);
     q->push(30);
     q->push(40);
     q->push(50);
-    cout << "queue is full ? : " << q->isFull() << endl;
     q->pop();
     q->pop();
     q->pop();
-    q->pop();
-    q->pop();
-    cout << "Length of queue : " << q->getLength() << endl;
+    q->push(60);
+    q->push(610);
+    q->push(650);
 
-    q->push(69);
-    q->push(39);
-    q->push(49);
-    q->push(59);
+    cout<<"Queue full?"<<q->isFull()<<endl;
+    cout<<"Queue Empty?"<<q->isEmpty()<<endl;
 
-    cout << "Queue empty : " << q->isEmpty() << endl;
+    q->pop();
+    q->pop();
+    q->pop();
+    q->pop();
+    q->pop();
+    q->pop();
+    cout<<"Queue Empty?"<<q->isEmpty()<<endl;
+    cout<<"Queue Full?"<<q->isFull()<<endl;
 
+    q->push(10);
+    q->push(20);
+    q->push(30);
+ 
+    
     q->display();
-    cout << "front of queue : " << q->getFront() << endl;
-    cout << "Rear of Queue : " << q->getRear() << endl;
-    cout << "Length of queue : " << q->getLength() << endl;
     return 0;
 }
