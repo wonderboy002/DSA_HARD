@@ -20,7 +20,7 @@ public:
 
     bool isFull()
     {
-        return (front==0 && rear == size - 1) || (front==rear+1) ? 1 : 0;
+        return (front==0 && rear == size - 1) || (front==(rear+1)%size) ? 1 : 0;
     }
 
     void push(int x)
