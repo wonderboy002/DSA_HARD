@@ -155,7 +155,7 @@ public:
 
 int main()
 {
-    doubly_ended_queue *dq=new doubly_ended_queue(5);
+    doubly_ended_queue *dq = new doubly_ended_queue(5);
     dq->push_back(10);
     dq->push_back(20);
     dq->push_back(30);
@@ -164,11 +164,11 @@ int main()
     dq->pop_front();
     dq->pop_front();
     dq->pop_front();
-    cout<<"is our queue full???"<<dq->isFull()<<endl;
+    cout << "is our queue full???" << dq->isFull() << endl;
     dq->push_front(100);
     dq->push_front(200);
     dq->push_front(300);
-    cout<<"is our queue full???"<<dq->isFull()<<endl;
+    cout << "is our queue full???" << dq->isFull() << endl;
     dq->display();
     dq->pop_back();
     dq->pop_back();
@@ -176,8 +176,8 @@ int main()
     dq->pop_back();
     dq->pop_back();
     dq->display();
-    cout<<"is our queue full??"<<dq->isFull()<<endl;
-    cout<<"is our queue empty??"<<dq->isEmpty()<<endl;
+    cout << "is our queue full??" << dq->isFull() << endl;
+    cout << "is our queue empty??" << dq->isEmpty() << endl;
 
     dq->push_back(100);
     dq->push_front(200);
@@ -185,7 +185,7 @@ int main()
     dq->push_back(3100);
     dq->display();
 
-    cout<<"front element :: "<<dq->getFront()<<endl;    
-    cout<<"rear element :: "<<dq->getRear()<<endl;    
+    cout << "front element :: " << dq->getFront() << endl;
+    cout << "rear element :: " << dq->getRear() << endl;
     return 0;
 }

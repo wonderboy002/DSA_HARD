@@ -20,7 +20,7 @@ public:
 
     bool isFull()
     {
-        return (front==0 && rear == size - 1) || (front==(rear+1)%size) ? 1 : 0;
+        return (front == 0 && rear == size - 1) || (front == (rear + 1) % size) ? 1 : 0;
     }
 
     void push(int x)
@@ -35,11 +35,12 @@ public:
         {
             cout << "Circular_Queue overflow" << endl;
         }
-        else if (rear==size-1 && front!=0){
-            rear=0;
-            arr[rear]=x;
+        else if (rear == size - 1 && front != 0)
+        {
+            rear = 0;
+            arr[rear] = x;
         }
-        else 
+        else
         {
             rear++;
             arr[rear] = x;
@@ -58,9 +59,10 @@ public:
         {
             cout << "Circular_Queue underflow" << endl;
         }
-        else if (front==size-1){
-            temp=arr[front];
-            front=0;
+        else if (front == size - 1)
+        {
+            temp = arr[front];
+            front = 0;
         }
         else
         {
@@ -90,12 +92,13 @@ public:
         cout << "Your Circular_Queue is : " << endl;
         if (!this->isEmpty())
         {
-            int i=front;
-            while (i!=rear){
-                cout<<arr[i]<<" ";
-                i=i==size-1?0:i+1;
+            int i = front;
+            while (i != rear)
+            {
+                cout << arr[i] << " ";
+                i = i == size - 1 ? 0 : i + 1;
             }
-            cout<<arr[rear]<<" ";
+            cout << arr[rear] << " ";
         }
         else
         {
@@ -119,8 +122,8 @@ int main()
     q->push(610);
     q->push(650);
 
-    cout<<"Queue full?"<<q->isFull()<<endl;
-    cout<<"Queue Empty?"<<q->isEmpty()<<endl;
+    cout << "Queue full?" << q->isFull() << endl;
+    cout << "Queue Empty?" << q->isEmpty() << endl;
 
     q->pop();
     q->pop();
@@ -128,14 +131,13 @@ int main()
     q->pop();
     q->pop();
     q->pop();
-    cout<<"Queue Empty?"<<q->isEmpty()<<endl;
-    cout<<"Queue Full?"<<q->isFull()<<endl;
+    cout << "Queue Empty?" << q->isEmpty() << endl;
+    cout << "Queue Full?" << q->isFull() << endl;
 
     q->push(10);
     q->push(20);
     q->push(30);
- 
-    
+
     q->display();
     return 0;
 }
