@@ -7,6 +7,8 @@ int partition(int *arr, int start, int end)
     j = start;
     i = start - 1;
     int pivot = end;
+    //j index keep track of all elements less than pivot , while i keeps track of elements greater than pivot
+    //once a smaller element is encountered
     while (j < pivot)
     {
         if (arr[j] < arr[pivot])
