@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(191, 222, 232);
+      }
+
+      .container {
+        width: 30%;
+        background: white;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .inner {
+        padding: 2rem;
+        line-height: 2;
+        width: 100%;
+        background: #396afc; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #2948ff,
+          #396afc
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #2948ff,
+          #396afc
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: white;
+        border-radius: 20px;
+        clip-path: circle(10% at 0 0);
+        transition-property: all;
+        transition-duration: 0.8s;
+        transition-timing-function: ease-in-out;
+      }
+
+      .container:hover .inner{
+        clip-path: circle(70%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner">
+        <h1>Hey Hey!!!!</h1>
+        <p>I am gonna tell you something thats very important</p>
+      </div>
+    </div>
+  </body>
+</html>
