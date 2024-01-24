@@ -24,10 +24,10 @@ void printPaths(vector<vector<int>> &maze, int x, int y, vector<vector<bool>> &v
     {
         if (isSafe(x + dx[i], y + dy[i], maze, visited))
         {
-            visited[x + dx[i]][y + dy[i]] = true;
+            visited[x][y] = true;
             output.push_back(directions[i]);
             printPaths(maze, x + dx[i], y + dy[i], visited, N, output, dx, dy);
-            visited[x + dx[i]][y + dy[i]] = false;
+            visited[x][y] = false;
             output.pop_back();
         }
     }
