@@ -16,30 +16,34 @@ public:
 
 void postorder(Node *root)
 {
-  if (root == NULL)
+  if (!root)
   {
     return;
   }
+
+  // node whose left and right subtrees are visited is processed
   postorder(root->left);
   postorder(root->right);
   cout << root->data << " ";
 }
 void preorder(Node *root)
 {
-  if (root == NULL)
+  if (!root)
   {
     return;
   }
+  // node is processed first then left and right subtrees are visited
   cout << root->data << " ";
   preorder(root->left);
   preorder(root->right);
 }
 void inorder(Node *root)
 {
-  if (root == NULL)
+  if (!root)
   {
     return;
   }
+  // left subtree is visited first then node is processed
   inorder(root->left);
   cout << root->data << " ";
   inorder(root->right);
@@ -48,20 +52,22 @@ void inorder(Node *root)
 Node *create_tree()
 {
   int data;
-  cout << "Enter data to insert in tree : " << endl;
+  cout << "Enter data : " << endl;
   cin >> data;
-  Node *root = new Node(data);
+
+  // base case
   if (data == -1)
   {
     return NULL;
   }
 
-  cout << "left child of : " << root->data << endl;
-  // creating left subtree of a given node
+  Node *root = new Node(data);
+
+  //node for which left and right subtrees are visited is returned
+  cout << "Enter data for left child of " << root->data << endl;
   root->left = create_tree();
 
-  cout << "rigth child : " << root->data << endl;
-  // creating the right subtree of a given node
+  cout << "Enter data for right child of " << root->data << endl;
   root->right = create_tree();
 
   return root;
@@ -69,13 +75,14 @@ Node *create_tree()
 int main()
 {
   Node *root = create_tree();
+  cout << endl;
   cout << "preorder traversal" << endl;
   preorder(root);
 
-  cout<<"inorder traversal"<<endl;
+  cout << "inorder traversal" << endl;
   inorder(root);
 
-  cout<<"postorder traversal "<<endl;
+  cout << "postorder traversal " << endl;
   postorder(root);
 
   return 0;
