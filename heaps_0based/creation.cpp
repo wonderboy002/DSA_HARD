@@ -53,7 +53,7 @@ public:
         int index=0;
         //0 based indexing mein size/2 se lekar size-1 tak saare leaf nodes hai toh unke liye delete karne k baad arrangements check karne ki need nhi hai
         while (index<=(size/2)-1){
-            //
+            
             int largest=index;
             int leftChild=2*index+1;
             int rightChild=2*index+2;

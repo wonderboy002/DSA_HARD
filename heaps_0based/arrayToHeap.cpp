@@ -11,41 +11,37 @@ void display(int *arr, int n)
 
 void heapify(int *arr, int size, int i)
 {
-    int largest = i;
-    int leftChild = 2 * i + 1;
-    int rightChild = 2 * i + 2;
+   int left=2*i+1;
+   int right=2*i+2;
+   int largest=i;
 
-    if (leftChild < size && arr[leftChild] > arr[largest])
-    {
-        largest = leftChild;
-    }
+   if (left<size && arr[left]>arr[largest]){
+       largest=left;
+   }
 
-    if (rightChild < size && arr[rightChild] > arr[largest])
-    {
-        largest = rightChild;
-    }
+   if (right<size && arr[right]>arr[largest]){
+    largest=right;
+   }
 
-    if (i != largest)
-    {
-        swap(arr[i], arr[largest]);
-        heapify(arr, size, largest);
-    }
+   if (i!=largest){
+    swap(arr[i],arr[largest]);
+    heapify(arr,size,largest);
+   }
 }
 
 void buildHeap(int *arr, int n)
 {
-    for (int i = (n / 2) - 1; i >= 0; i--)
-    {
-        heapify(arr, n, i);
+    for (int i=(n/2)-1;i>=0;i--){
+        heapify(arr,n,i);
     }
 }
 
 void heapSort(int *arr,int n){
-    while (n>1){
-        swap(arr[0],arr[n-1]);
-        n--;
-        heapify(arr,n,0);
-    }
+   while (n!=1){
+    swap(arr[0],arr[n-1]);
+    n--;
+    heapify(arr,n,0);
+   }
 }
 
 int main()
