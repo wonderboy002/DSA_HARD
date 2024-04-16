@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 class Stacks
 {
@@ -10,95 +10,85 @@ public:
     Stacks(int n)
     {
         this->arr = new int[n];
-        this->n = n;
         this->top = -1;
+        this->n = n;
     }
 
     void push(int x)
     {
-        if (this->top == n - 1)
+        // stack overflow case
+        if (top == n - 1)
         {
-            cout << "Stack Overflow!!! unable to push " << x << " to the stack " << endl;
+            cout << "stack overflow!!!"
+                 << " unable to push " << x << " onto the stack : " << endl;
+            return;
         }
-        else
-        {
-            this->top++;
-            this->arr[this->top] = x;
-        }
+        this->top++;
+        arr[top] = x;
     }
 
     int pop()
     {
-        if (this->top == -1)
+        // stack underflow case
+        if (top == -1)
         {
-            cout << "Stack underflow!!! unable to pop" << endl;
+            cout << "stack underflow unable to pop : " << endl;
+            return 9999;
         }
-        else
-        {
-            int x = arr[top];
-            top--;
-            return x;
-        }
+        int temp = arr[top];
+        this->top--;
+        return temp;
     }
 
     bool isEmpty()
     {
-        if (top == -1)
-        {
-            return true;
-        }
-        return false;
+        return this->top == -1 ? true : false;
     }
 
     bool isFull()
     {
-        if (top == n - 1)
-        {
-            return true;
-        }
-        return false;
+        return this->top == n - 1;
     }
 
     int getTop()
     {
-        if (top != -1)
+        if (!isEmpty())
         {
             return arr[top];
         }
+        return 9999;
     }
 
-    void print()
+    void display()
     {
-        cout << "Stack is given by" << endl;
-        if (top != 1)
+        //stl jaise print karne gye toh orignal stack hi empty ho jayegi hue hue hue
+        cout << "Your stack is given by : " << endl;
+        for (int i = top; i >= 0; i--)
         {
-            for (int i = top; i >= 0; i--)
-            {
-                cout << arr[i] << endl;
-            }
-        }
-        else {
-            cout<<"Stack is empty"<<endl;
+            cout << arr[i] << endl;
         }
     }
 };
 int main()
 {
-    Stacks *s = new Stacks(6);
+    Stacks *s = new Stacks(5);
     s->push(1);
     s->push(2);
     s->push(3);
-    s->push(5);
-    s->push(6);
-    s->push(8);
-    s->push(81);
+    s->push(4);
+    s->push(41);
 
-    
-    s->print();
+    s->display();
+    cout << "Stack top given by : " << s->getTop() << endl;
 
     s->pop();
     s->pop();
+    s->pop();
 
-    s->print();
+    s->display();
+
+    cout << "Stack full : " << s->isFull() << endl;
+    cout << "Stack empty : " << s->isEmpty() << endl;
+    cout << "Stack top given by : " << s->getTop() << endl;
     return 0;
 }
