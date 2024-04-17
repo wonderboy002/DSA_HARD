@@ -4,9 +4,11 @@ using namespace std;
 // Function to initialize the graph represented as an adjacency list
 // adj: a 2D vector of integers representing the adjacency list
 // m: an integer representing the number of edges in the graph
-void init_graph(vector<int> adj[], int m) {
+void init_graph(vector<int> adj[], int m)
+{
     // Iterate through each edge in the graph
-    while (m--) {
+    while (m--)
+    {
         int u, v;
         cout << "Enter the edge : " << endl;
         cin >> u >> v;
@@ -19,12 +21,15 @@ void init_graph(vector<int> adj[], int m) {
 // Function to display the adjacency list
 // adj: a 2D vector of integers representing the adjacency list
 // n: an integer representing the number of vertices in the graph
-void display(vector<int> adj[], int n) {
+void display(vector<int> adj[], int n)
+{
     // Iterate through each vertex in the graph
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         cout << "neighbours of vertex : " << i << endl;
         // Iterate through the vector at the corresponding index
-        for (auto n : adj[i]) {
+        for (auto n : adj[i])
+        {
             cout << n << " ";
         }
         cout << endl;
@@ -35,7 +40,8 @@ void display(vector<int> adj[], int n) {
 // adj: a 2D vector of integers representing the adjacency list
 // n: an integer representing the number of vertices in the graph
 // start: an integer representing the starting vertex for BFS
-void bfs(vector<int> adj[], int n, int start) {
+void bfs(vector<int> adj[], int n, int start)
+{
     // Initialize a vector of booleans to keep track of visited vertices
     vector<bool> visited(n + 1, false);
     // Initialize a queue to perform BFS
@@ -45,16 +51,19 @@ void bfs(vector<int> adj[], int n, int start) {
     visited[start] = true;
 
     // Continue BFS until the queue is empty
-    while (!q.empty()) {
+    while (!q.empty())
+    {
         // Get the current vertex from the queue
         int node = q.front();
         q.pop();
         cout << node << " ";
 
         // Iterate through the neighbors of the current vertex
-        for (auto n : adj[node]) {
+        for (auto n : adj[node])
+        {
             // If the neighbor has not been visited, add it to the queue and mark it as visited
-            if (visited[n] == false) {
+            if (visited[n] == false)
+            {
                 q.push(n);
                 visited[n] = true;
             }
@@ -62,7 +71,8 @@ void bfs(vector<int> adj[], int n, int start) {
     }
 }
 
-int main() {
+int main()
+{
     int n;
     cout << "Enter the number of vertices : " << endl;
     cin >> n;

@@ -36,7 +36,7 @@ void display(vector<int> adj[], int n) {
 // n: an integer representing the number of vertices in the graph
 // start: an integer representing the starting vertex for DFS
 void dfs(vector<int> adj[], int n, int start, vector<bool> &visited) {
-    // Mark the starting vertex as visited
+     // Mark the starting vertex as visited
     visited[start] = true;
     // Print the starting vertex
     cout << start << " ";
