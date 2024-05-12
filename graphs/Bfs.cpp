@@ -42,30 +42,24 @@ void display(vector<int> adj[], int n)
 // start: an integer representing the starting vertex for BFS
 void bfs(vector<int> adj[], int n, int start)
 {
-    // Initialize a vector of booleans to keep track of visited vertices
-    vector<bool> visited(n + 1, false);
-    // Initialize a queue to perform BFS
+    vector<bool> visited(n, false);
     queue<int> q;
-    // Add the starting vertex to the queue and mark it as visited
-    q.push(start);
     visited[start] = true;
-
-    // Continue BFS until the queue is empty
+    q.push(start);
     while (!q.empty())
     {
-        // Get the current vertex from the queue
+        // acquire a node from the queue
         int node = q.front();
         q.pop();
         cout << node << " ";
-
-        // Iterate through the neighbors of the current vertex
-        for (auto n : adj[node])
+        // iterate through the neighbours of the node
+        for (auto nodes : adj[node])
         {
-            // If the neighbor has not been visited, add it to the queue and mark it as visited
-            if (visited[n] == false)
+            if (visited[nodes] == false)
             {
-                q.push(n);
-                visited[n] = true;
+                // mark the node as visited
+                visited[nodes] = true;
+                q.push(nodes);
             }
         }
     }
