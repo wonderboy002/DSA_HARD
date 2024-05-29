@@ -1,68 +1,54 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Stacks
+class Stack
 {
-public:
-    int *arr;
-    int n;
-    int top;
+private:
+    int *arr, n, top;
 
-    Stacks(int n)
+public:
+    Stack(int n)
     {
-        this->arr = new int[n];
-        this->top = -1;
+        arr = new int[n];
         this->n = n;
+        top = -1;
     }
 
+    bool isEmpty()
+    {
+        return top == -1 ? true : false;
+    }
+    bool isFull()
+    {
+        return top == n - 1 ? true : false;
+    }
     void push(int x)
     {
-        // stack overflow case
-        if (top == n - 1)
+        if (isFull())
         {
-            cout << "stack overflow!!!"
-                 << " unable to push " << x << " onto the stack : " << endl;
+            cout << "Stack overflow!!! unable to push " << x << " onto the stack " << endl;
             return;
         }
-        this->top++;
+        top++;
         arr[top] = x;
     }
 
     int pop()
     {
-        // stack underflow case
-        if (top == -1)
+        if (isEmpty())
         {
-            cout << "stack underflow unable to pop : " << endl;
-            return 9999;
+            cout << "Stack underflow!!!" << endl;
+            return -1;
         }
         int temp = arr[top];
-        this->top--;
+        top--;
         return temp;
     }
-
-    bool isEmpty()
-    {
-        return this->top == -1 ? true : false;
-    }
-
-    bool isFull()
-    {
-        return this->top == n - 1;
-    }
-
     int getTop()
     {
-        if (!isEmpty())
-        {
-            return arr[top];
-        }
-        return 9999;
+        return top == -1 ? -1 : arr[top];
     }
-
     void display()
     {
-        //stl jaise print karne gye toh orignal stack hi empty ho jayegi hue hue hue
-        cout << "Your stack is given by : " << endl;
         for (int i = top; i >= 0; i--)
         {
             cout << arr[i] << endl;
@@ -71,24 +57,22 @@ public:
 };
 int main()
 {
-    Stacks *s = new Stacks(5);
-    s->push(1);
-    s->push(2);
-    s->push(3);
-    s->push(4);
-    s->push(41);
+    Stack *st=new Stack(5);
+    // cout<<st->isEmpty()<<endl;
+    // cout<<st->isFull()<<endl;
 
-    s->display();
-    cout << "Stack top given by : " << s->getTop() << endl;
-
-    s->pop();
-    s->pop();
-    s->pop();
-
-    s->display();
-
-    cout << "Stack full : " << s->isFull() << endl;
-    cout << "Stack empty : " << s->isEmpty() << endl;
-    cout << "Stack top given by : " << s->getTop() << endl;
+    st->push(101);
+    st->push(2);
+    st->push(3);
+    st->push(4);
+    st->push(5);
+    // st->push(6);
+    st->pop();
+    st->pop();
+    st->pop();
+    st->pop();
+    st->pop();
+    cout<<st->getTop()<<endl;
+    st->display();
     return 0;
 }

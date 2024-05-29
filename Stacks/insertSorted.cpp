@@ -13,16 +13,15 @@ void display(stack<int> s)
 
 void insertSorted(stack<int> &s, int x)
 {
-    if (s.empty() || x > s.top())
-    {
+    //base case
+    if (s.empty() || x>s.top()){
         s.push(x);
         return;
     }
-
-    int temp = s.top();
+    int tp=s.top();
     s.pop();
-    insertSorted(s, x);
-    s.push(temp);
+    insertSorted(s,x);
+    s.push(tp);
 }
 
 int main()
